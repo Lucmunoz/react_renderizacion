@@ -1,12 +1,13 @@
+import { useState } from 'react'
 
 import Listado from './components/Listado.jsx'
 import Alert from './components/Alert.jsx'
 import Buscador from './components/Buscador.jsx'
 import Formulario from './components/Formulario.jsx'
-//import BaseColaboradores from './components/BaseColaboradores.js'
-
 
 function App() {
+
+  const [alert, setAlert] = useState({ error: "", mensaje: "", color: "" })
 
   return (
     <>
@@ -21,8 +22,8 @@ function App() {
           </div>
         </div>
         <div className="col-8 col-xl-3 ">
-          <Formulario />
-          <Alert/>
+          <Formulario SetearAlerta={setAlert} alerta={alert} />
+          <Alert tipo="success" mensaje="lo logramos"/>
         </div>
       </div>
     </>

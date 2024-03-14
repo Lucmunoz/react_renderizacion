@@ -1,8 +1,8 @@
+import {BaseColaboradores} from "./BaseColaboradores.js"
 
 const Listado = () => {
   return (
     <>
-
         <table className="table table-striped ">
         <thead>
           <tr>

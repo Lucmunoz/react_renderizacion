@@ -1,6 +1,6 @@
-const Alert = () => {
+const Alert = ({tipo, mensaje}) => {
     return (
-      <div className="alert alert-success ">¡Colaborador agregado exitosamente!</div>
+      <div className={`alert alert-${tipo}`}>{mensaje}</div>
     )
   }
   
