@@ -5,12 +5,8 @@ import Buscador from './components/Buscador.jsx'
 import Formulario from './components/Formulario.jsx'
 //import BaseColaboradores from './components/BaseColaboradores.js'
 
-import { useState } from 'react'
-
-
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -26,6 +22,7 @@ function App() {
         </div>
         <div className="col-8 col-xl-3 ">
           <Formulario />
+          <Alert/>
         </div>
       </div>
     </>
