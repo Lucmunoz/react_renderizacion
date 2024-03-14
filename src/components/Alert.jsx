@@ -1,7 +1,7 @@
 const Alert = () => {
     return (
       <>
-      <div>Alert</div>
+      <div className="alert alert-success ">¡Colaborador agregado exitosamente!</div>
       </>
     )
   }
