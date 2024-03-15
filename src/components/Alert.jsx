@@ -1,8 +1,3 @@
-const Alert = ({tipo, mensaje}) => {
-    return (
-      <div className={`alert alert-${tipo}`}>{mensaje}</div>
-    )
-  }
-  
-  export default Alert
+const Alert = ({alerta}) => alerta.error? <div className={`alert alert-${alerta.tipo}`}>{alerta.mensaje}</div>: ""
+export default Alert
   
