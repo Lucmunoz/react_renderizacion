@@ -1,11 +1,14 @@
-import {BaseColaboradores} from "./BaseColaboradores.js"
+const Listado = ({ bdColaboradores, search }) => {
+  const bdColaboradoresFiltrada = bdColaboradores.filter((colaborador) => {
+    return (colaborador.id.toLowerCase().includes(search.toLowerCase()) || colaborador.nombre.toLowerCase().includes(search.toLowerCase()) || colaborador.correo.toLowerCase().includes(search.toLowerCase())|| colaborador.edad.toLowerCase().includes(search.toLowerCase())|| colaborador.cargo.toLowerCase().includes(search.toLowerCase())|| colaborador.telefono.toLowerCase().includes(search.toLowerCase()) )
+  })
 
-const Listado = () => {
   return (
     <>
-        <table className="table table-striped ">
+      <table className="table table-striped ">
         <thead>
           <tr>
+            <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Correo</th>
             <th scope="col">Edad</th>
@@ -14,27 +17,21 @@ const Listado = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Lucas</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>+56965280503</td>
-          </tr>
-          <tr>
-            <td>Lucas</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>+56965280503</td>
-          </tr>
-          <tr>
-            <td>Lucas</td>
-            <td>@twitter</td>
-            <td>@fat</td>
-            <td>Thornton</td>
-            <td>+56965280503</td>
-          </tr>
+          {
+            bdColaboradoresFiltrada.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <td >{item.id}</td>
+                  <td>{item.nombre}</td>
+                  <td>{item.correo}</td>
+                  <td>{item.edad}</td>
+                  <td>{item.cargo}</td>
+                  <td>{item.telefono}</td>
+                </tr>
+
+              );
+            })
+          }
         </tbody>
       </table>
     </>
