@@ -1,18 +1,25 @@
 import "../main.css"
-
 import { useState } from 'react'
 
+/* Importación de componentes */
 import Listado from './components/Listado.jsx'
 import Alert from './components/Alert.jsx'
 import Buscador from './components/Buscador.jsx'
 import Formulario from './components/Formulario.jsx'
-import { BaseColaboradores } from "./components/BaseColaboradores.js"
+
+/* Importación de base de datos */
+import { BaseColaboradores } from "./BaseColaboradores.js"
 
 function App() {
 
+  /*Definición de estados para trabajo según solicita desafío. Se incluye el adicional "historialID" para manejo de ID y acoger
+    el desafío opcional de eliminar registros de colaboradores*/
+  const [historialId, setHistorialId] = useState([]);
   const [colaboradores, setColaboradores] = useState(BaseColaboradores);
   const [search, setSearch] = useState("");
   const [alert, setAlert] = useState({ error: false, mensaje: "asda", tipo: "danger" })
+
+  //Render principal desde dond se realiza el llamado a los componentes con sus respecitvos props.
 
   return (
     <>
@@ -23,16 +30,15 @@ function App() {
             <Buscador setSearch={setSearch} />
           </div>
           <div className="table-responsive">
-            <Listado bdColaboradores={colaboradores} search={search} />
+            <Listado bdColaboradores={colaboradores} setearColaboradores={ setColaboradores } search={search} historialId={historialId} setHistorialId={setHistorialId} />
           </div>
         </div>
         <div className="col-8 col-xl-3 ">
-          <Formulario SetearAlerta={setAlert} />
+          <Formulario SetearAlerta={setAlert} bdColaboradores={colaboradores} setearColaboradores={setColaboradores} historialId={historialId} setHistorialId={setHistorialId} />
           <Alert alerta={alert} />
         </div>
       </div>
     </>
   )
 }
-
 export default App
