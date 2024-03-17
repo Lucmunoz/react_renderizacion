@@ -1,5 +1,3 @@
-
-
 const Listado = ({ bdColaboradores, setearColaboradores, search, historialId, setHistorialId }) => {
 
 /*  Antes de proceder a mostrar la lista de colaboradores, verifico el valor la existencia del texto ingresado en todos los campos según solicita el
@@ -44,11 +42,14 @@ Comentario al revisor: En este componente ya etoy trabajando con 5 props. los ul
     //setearColaboradores(bdColaboradores.filter((element) => {element.id != (id)}));        
   }
 
-/*Render que mostrará en pantalla la lista con los datos de cada objeto que forma parte del arreglo base de datos. La renderizacio´n de datos
-  se hace meidante el metodo MAP. Asingnado un key unico a cada elemento renderizado. Este key es el ID ya que como condición del codigo, este
-  valor nunca se repetira.
+/*Render que mostrará en pantalla la lista con los datos de cada objeto que forma parte del arreglo base de datos. La renderización de datos
+  se hace mediante el metodo MAP. 
+  
+  IMPORTANTE, Si bien el desafío pide replicar el estilo de la aplicación usando bootstrap, a este diseño se le agrega una columna adicional de ID.
+  No hay restricciones al respecto señaladas en el desafío y se opta por incluir este elemento ya que forma parte de cada objeto en el arreglo y 
+  permite ademas ejercitar de mejor manera la asignación de ID a un nuevo colaborador.
 
-  Junto con lo anterior, se atiende el desafío opcional de añadir la capacidad de eliminar colaboradores. */
+  Se atiende además el opcional de eliminar un colaborador  en donde al hacer click sobre el icono de basurero, se llama a la función handleClickDelete*/
 
   return (
     <>
